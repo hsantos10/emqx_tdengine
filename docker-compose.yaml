@@ -9,7 +9,7 @@ services:
       - "6032:6032"  # TDengine UDP API
       - "6041:6041" #Old HTTP port
     volumes:
-      - ~/data/taos/dnode/data:/var/lib/taos
+      - $PWD/data/taos/dnode/data:/var/lib/taos
       - ~/data/taos/dnode/log:/var/log/taos
 
   emqx:

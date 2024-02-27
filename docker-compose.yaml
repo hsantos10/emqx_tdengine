@@ -1,5 +1,22 @@
 version: '3'
 services:
+  emqx:
+    image: emqx/emqx:5.5.0
+    container_name: emqx_test
+    user: root
+    ports:
+      - "1883:1883"
+      - "8083:8083"
+      - "8084:8084"
+      - "8883:8883"
+      - "18083:18083"
+    restart: always
+    volumes:
+      - /home/data/emqx/data:/opt/emqx/data
+      - /home/data/emqx/log:/opt/emqx/log
+
+
+
   tdengine:
     image: tdengine/tdengine:latest
     container_name: tdengine_test
@@ -11,18 +28,3 @@ services:
     volumes:
       - /home/data/taos/dnode/data:/var/lib/taos
       - /home/data/taos/dnode/log:/var/log/taos
-
-  emqx:
-    image: amd64/emqx:latest
-    container_name: emqx_test
-    ports:
-      - "1883:1883"   # MQTT
-      - "8883:8883"   # MQTT over TLS
-      - "8083:8083"   # EMQX Dashboard (HTTP)
-      - "8084:8084"   # EMQX Dashboard (HTTPS)
-      - "18083:18083" # EMQX Management Dashboard
-    volumes:
-      - /home/data/emqx/data:/opt/emqx/data
-      - /home/data/emqx/log:/opt/emqx/log
-      - /home/data/emqx/etc:/opt/emqx/etc
-

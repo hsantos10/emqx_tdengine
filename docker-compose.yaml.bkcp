@@ -1,0 +1,30 @@
+version: '3'
+services:
+  tdengine:
+    image: tdengine/tdengine:latest
+    container_name: tdengine_test
+    ports:
+      - "6030:6030"  # TDengine HTTP API
+      - "6031:6031"  # TDengine TCP API
+      - "6032:6032"  # TDengine UDP API
+      - "6041:6041" #Old HTTP port
+    volumes:
+      - /home/data/taos/dnode/data:/var/lib/taos
+      - /home/data/taos/dnode/log:/var/log/taos
+
+
+  emqx:
+    image: emqx/emqx:5.5.0
+    container_name: emqx
+    user: root  # Set the user to root
+    ports:
+      - "1883:1883"   # MQTT
+      - "8883:8883"   # MQTT over TLS
+      - "8083:8083"   # EMQX Dashboard (HTTP)
+      - "8084:8084"   # EMQX Dashboard (HTTPS)
+      - "18083:18083" # EMQX Management Dashboard
+    volumes:
+      - /home/data/emqx/data:/opt/emqx/data
+      - /home/data/emqx/log:/opt/emqx/log
+      - /home/data/emqx/etc:/opt/emqx/etc
+

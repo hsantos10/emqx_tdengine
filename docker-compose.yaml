@@ -9,8 +9,8 @@ services:
       - "6032:6032"  # TDengine UDP API
       - "6041:6041" #Old HTTP port
     volumes:
-      - $PWD/data/taos/dnode/data:/var/lib/taos
-      - ~/data/taos/dnode/log:/var/log/taos
+      - /home/data/taos/dnode/data:/var/lib/taos
+      - /home/data/taos/dnode/log:/var/log/taos
 
   emqx:
     image: amd64/emqx:latest
@@ -22,7 +22,7 @@ services:
       - "8084:8084"   # EMQX Dashboard (HTTPS)
       - "18083:18083" # EMQX Management Dashboard
     volumes:
-      - ~/data/emqx/data:/opt/emqx/data
-      - ~/data/emqx/log:/opt/emqx/log
-      - ~/data/emqx/etc:/opt/emqx/etc
+      - /home/data/emqx/data:/opt/emqx/data
+      - /home/data/emqx/log:/opt/emqx/log
+      - /home/data/emqx/etc:/opt/emqx/etc
 

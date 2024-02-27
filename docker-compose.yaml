@@ -1,7 +1,7 @@
 version: '3'
 services:
   tdengine:
-    image: taosdata/tdengine:latest
+    image: tdengine/tdengine:latest
     container_name: tdengine_test
     ports:
       - "6030:6030"  # TDengine HTTP API
@@ -14,7 +14,7 @@ services:
 
   emqx:
     image: amd64/emqx:latest
-    container_name: emqx
+    container_name: emqx_test
     ports:
       - "1883:1883"   # MQTT
       - "8883:8883"   # MQTT over TLS

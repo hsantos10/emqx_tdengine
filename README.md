@@ -1,6 +1,6 @@
-# My Awesome Project
+# EMQX MQTT broker and TDEngine on docker
 
-Welcome to my awesome project! This project does amazing things and solves important problems.
+This project simplifies the installation of TDEngine database and an EMQX MQTT broker
 
 ## Features
 

@@ -73,7 +73,7 @@ sql
 
 1. Go to EMQX Dashboard, and click  connectors.
 2. Click on Create on the top right corner of the page.
-3. Set the url path to the TDEngine RESTful API as shown bellow
+3. Set the url path to the TDEngine RESTful API (http://TDEngineIPAddress:6041/rest/sql) as shown bellow
 ![Connector](Connector.png)
 
 ### Create a Rule with TDengine Sink
@@ -92,8 +92,15 @@ This section demonstrates how to create a rules to specify the data to be saved 
   FROM
     "t/#"
 ```
-![Rule](Rule.png)
 
+
+5. Click the + Add Action button to define an action that will be triggered by the rule. With this action, EMQX sends the data processed by the rule to TDengine.
+
+6. Select HTTP Server from the Type of Action dropdown list.
+7. Enter the name of the Action
+8. Select the connector created before as the default connector for TDEngine
+9. Save changes
+![Rule](Rule.png)
 
 
 

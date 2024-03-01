@@ -35,7 +35,7 @@ taos
 ```
 Once inside taos:
 ```sql
-# Create and then select the database
+
 CREATE DATABASE mqtt;
 
 use mqtt;

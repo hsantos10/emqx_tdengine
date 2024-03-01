@@ -17,7 +17,11 @@ This project simplifies the installation of TDEngine database and an EMQX MQTT b
 1. Clone this repository.
 2. Run the docker compose file
 
-## Store data from a specified MQTT topic to a TDEngine table:
+## Usage
+
+Store data from a specified MQTT topic to a TDEngine table:
+
+###Create the database on TDEngine
 
 ```shell
 # To start the TDengine docker image 
@@ -37,8 +41,34 @@ CREATE DATABASE mqtt;
 use mqtt;
 ```
 
-1. Co
-2. Include code examples or screenshots if necessary.
+### Create Data Tables in TDengine
+
+Before you create data bridges for TDengine, you need to create two data tables in TDengine database for message storage and status recording.
+
+Use the following SQL statements to create data table t_mqtt_msg in TDengine database. The data table stores the client ID, topic, payload, and creation time of every message.
+sql
+```sql
+   CREATE TABLE t_mqtt_msg (
+       ts timestamp,
+       msgid NCHAR(64),
+       mqtt_topic NCHAR(255),
+       qos TINYINT,
+       payload BINARY(1024),
+       arrived timestamp
+     );
+```
+Use the following SQL statements to create data table emqx_client_events in TDengine database. This data table stores the client ID, event type, and creation time of every event.
+sql
+
+```sql
+     CREATE TABLE emqx_client_events (
+         ts timestamp,
+         clientid VARCHAR(255),
+         event VARCHAR(255)
+       );
+```
+
+
 
 ## Contributing
 

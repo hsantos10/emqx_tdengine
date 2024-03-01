@@ -33,12 +33,13 @@ docker exec -it TDengine bash
 # Locate the TDengine server in the container
 taos
 ```
-Once inside taos:
+Once inside taos Create and then select the database:
+
 ```sql
 
 CREATE DATABASE mqtt;
 
-use mqtt;
+USE mqtt;
 ```
 
 ### Create Data Tables in TDengine

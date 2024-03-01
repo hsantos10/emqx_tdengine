@@ -70,8 +70,8 @@ sql
 ```
 
 
-![alt text](Connector.png)
-
+![Connector](Connector.png)
+![Rule](Rule.png)
 
 ## Contributing
 

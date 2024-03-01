@@ -19,7 +19,7 @@ This project simplifies the installation of TDEngine database and an EMQX MQTT b
 
 ## Store data from a specified MQTT topic to a TDEngine table:
 
-```bash
+```console
 # To start the TDengine docker image 
 docker run --name TDengine -p 6041:6041 tdengine/tdengine
 

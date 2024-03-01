@@ -107,29 +107,21 @@ This section demonstrates how to create a rules to specify the data to be saved 
 
 1. Go to EMQX Dashboard, and click Rules.
 2. Click Create on the top right corner of the page.
-3. Enter my_rule as the rule ID, and set the rules in the SQL Editor based on the feature to use:
+3. Enter $Name as the rule ID, and set the rules in the SQL Editor based on the feature to use:
+4. To create a rule for message storage, input the following statement, which means the MQTT messages under topic t/# will be saved to TDengine.
 
-To create a rule for message storage, input the following statement, which means the MQTT messages under topic t/# will be saved to TDengine.
-
-Note: If you want to specify your own SQL syntax, make sure that you have included all fields required by the Sink in the SELECT part.
-
-sql
+```sql
   SELECT
     *,
     now_timestamp('millisecond')  as ts
   FROM
     "t/#"
-To create a rule for online/offline status recording, enter the following statement:
+```
+![Rule](Rule.png)
 
-sql
-SELECT
-      *,
-      now_timestamp('millisecond')  as ts
-    FROM 
-      "$events/client_connected", "$events/client_disconnected"
 
 ![Connector](Connector.png)
-![Rule](Rule.png)
+
 
 ## Contributing
 

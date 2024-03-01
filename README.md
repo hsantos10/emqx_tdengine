@@ -4,19 +4,21 @@ This project simplifies the installation of TDEngine database and an EMQX MQTT b
 
 ## Features
 
-- Feature 1: Describe what this feature does.
-- Feature 2: Explain the second feature.
-- ...
+- Ingest MQTT Data into TDengine:
+  EMQX supports integration with TDengine, allowing massive data transmission, storage, analysis, and distribution from numerous devices and data collectors. This integration provides real-time monitoring and early warning capabilities for business operations, offering valuable insights.
+- How It Works:
+The integration combines EMQX’s real-time data capturing and transmission capabilities with TDengine’s data storage and analysis functionality.
+EMQX includes a built-in rule engine component that simplifies the process of ingesting data from EMQX to TDengine for storage and analysis.
+
 
 ## Installation
 
 1. Clone this repository.
-2. Install the required dependencies (if any).
-3. Run the project using the provided instructions.
+2. Run the docker compose file
 
-## Usage
+## Store data from a specified MQTT topic to a TDEngine table:
 
-1. Provide clear instructions on how to use your project.
+1. Co
 2. Include code examples or screenshots if necessary.
 
 ## Contributing

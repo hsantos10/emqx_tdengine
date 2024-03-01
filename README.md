@@ -103,6 +103,7 @@ This section demonstrates how to create a rules to specify the data to be saved 
 ![Rule](Rule.png)
 
 
+### Test the Rule
 
 
 ## Contributing

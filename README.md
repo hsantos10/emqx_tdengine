@@ -69,37 +69,12 @@ sql
        );
 ```
 
+### Create a HTTP Connector to POST to the TDEngine RESTful API
 
-Create a Rule with TDengine Sink
-This section demonstrates how to create two different rules for specifying the data to be saved into TDengine and recording client's online/offline status.
-
-It assumes that you run both EMQX and TDengine on the local machine. If you have Microsoft SQL Server and EMQX running remotely, adjust the settings accordingly.
-
-Go to EMQX Dashboard, and click Integration -> Rules.
-
-Click Create on the top right corner of the page.
-
-Enter my_rule as the rule ID, and set the rules in the SQL Editor based on the feature to use:
-
-To create a rule for message storage, input the following statement, which means the MQTT messages under topic t/# will be saved to TDengine.
-
-Note: If you want to specify your own SQL syntax, make sure that you have included all fields required by the Sink in the SELECT part.
-
-sql
-  SELECT
-    *,
-    now_timestamp('millisecond')  as ts
-  FROM
-    "t/#"
-To create a rule for online/offline status recording, enter the following statement:
-
-sql
-SELECT
-      *,
-      now_timestamp('millisecond')  as ts
-    FROM 
-      "$events/client_connected", "$events/client_disconnected"
-
+1. Go to EMQX Dashboard, and click  connectors.
+2. Click on Create on the top right corner of the page.
+3. Set the url path to the TDEngine RESTful API as shown bellow
+![Connector](Connector.png)
 
 ### Create a Rule with TDengine Sink
 
@@ -120,7 +95,7 @@ This section demonstrates how to create a rules to specify the data to be saved 
 ![Rule](Rule.png)
 
 
-![Connector](Connector.png)
+
 
 
 ## Contributing

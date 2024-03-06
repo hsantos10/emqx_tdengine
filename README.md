@@ -4,7 +4,7 @@ This project automates the installation of an EMQX instance to create several MQ
 
 An example of it's application on a system is shown here:
 
-![Architecture](Arch.png)
+![Architecture](Arch.jpg)
 
 ## Features
 

@@ -1,6 +1,10 @@
 # EMQX MQTT broker and TDEngine on docker
 
-This project simplifies the installation of TDEngine database and an EMQX MQTT broker
+This project automates the installation of an EMQX instance to create several MQTT Brokers and TDEngine to store all the data from the topics managed by said broker.
+
+An example of it's application on a system is shown here:
+
+![Architecture](Arch.png)
 
 ## Features
 

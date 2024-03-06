@@ -19,7 +19,7 @@ An example of it's application on a system is shown here:
 ## Installation
 
 1. Clone this repository.
-2. Run the docker compose file
+2. Run docker compose file
 
 ## Usage
 

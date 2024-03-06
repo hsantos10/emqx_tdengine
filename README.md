@@ -23,7 +23,7 @@ An example of it's application on a system is shown here:
 
 ## Usage
 
-Store data from a specified MQTT topic to a TDEngine table:
+This section shows how to store data from a specified MQTT topic managed by the EMQX Broker into a TDEngine table:
 
 ###Create the database on TDEngine
 
@@ -120,4 +120,4 @@ Contributions are welcome! If you'd like to contribute, follow these steps:
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License.

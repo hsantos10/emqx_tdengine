@@ -28,8 +28,6 @@ services:
       - /home/data/taos/dnode/data:/var/lib/taos
       - /home/data/taos/dnode/log:/var/log/taos
 
-version: '3.0'
-services:
   thingsboard:
     restart: always
     image: "thingsboard/tb-postgres"

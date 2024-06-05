@@ -2,29 +2,44 @@ version: '3'
 services:
   emqx:
     image: emqx/emqx:5.5.0
-    container_name: emqx_test
+    container_name: emqx
     user: root
     ports:
-      - "1883:1883"
-      - "8083:8083"
-      - "8084:8084"
+      - "1883:1883" # MQTT
+      - "8083:8083" # MQTT Over WebSockets
+      - "8084:8084" # MQTT Over SSL
       - "8883:8883"
-      - "18083:18083"
+      - "18083:18083" #Dashboard
     restart: always
     volumes:
       - /home/data/emqx/data:/opt/emqx/data
       - /home/data/emqx/log:/opt/emqx/log
 
-
-
   tdengine:
     image: tdengine/tdengine:latest
-    container_name: tdengine_test
+    container_name: tdengine
     ports:
       - "6030:6030"  # TDengine HTTP API
       - "6031:6031"  # TDengine TCP API
       - "6032:6032"  # TDengine UDP API
       - "6041:6041" #Old HTTP port
+    restart: always
     volumes:
       - /home/data/taos/dnode/data:/var/lib/taos
       - /home/data/taos/dnode/log:/var/log/taos
+
+version: '3.0'
+services:
+  thingsboard:
+    restart: always
+    image: "thingsboard/tb-postgres"
+    ports:
+      - "8080:9090" # connect local port 8080 to exposed internal HTTP port 9090
+      - "1883:1883" # connect local port 1883 to exposed internal MQTT port 1883
+      - "7070:7070" # connect local port 7070 to exposed internal Edge RPC port 7070
+      - "5683-5688:5683-5688/udp" # connect local UDP ports 5683-5688 to exposed internal COAP and LwM2M ports
+    environment:
+      TB_QUEUE_TYPE: in-memory
+    volumes:
+      - ~/.mytb-data:/data
+      - ~/.mytb-logs:/var/log/thingsboard

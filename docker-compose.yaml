@@ -28,7 +28,7 @@ services:
       - /home/data/taos/dnode/data:/var/lib/taos
       - /home/data/taos/dnode/log:/var/log/taos
 
-  thingsboard:
+  mytb:
     restart: always
     image: "thingsboard/tb-postgres"
     ports:
@@ -36,8 +36,8 @@ services:
       - "1884:1883" # connect local port 1883 to exposed internal MQTT port 1883
       - "7070:7070" # connect local port 7070 to exposed internal Edge RPC port 7070
       - "5683-5688:5683-5688/udp" # connect local UDP ports 5683-5688 to exposed internal COAP and LwM2M ports
-    environment:
-      TB_QUEUE_TYPE: in-memory
+    #environment:
+    #  TB_QUEUE_TYPE: in-memory
     volumes:
       - ~/.mytb-data:/data
       - ~/.mytb-logs:/var/log/thingsboard

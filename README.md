@@ -1,4 +1,4 @@
-# EMQX MQTT broker and TDEngine on docker
+# EMQX MQTT broker, TDEngine and thingsboard on docker
 
 This project automates the installation of an EMQX instance to create several MQTT Brokers and TDEngine to store all the data from the topics managed by said broker.
 
@@ -19,7 +19,12 @@ An example of it's application on a system is shown here:
 ## Installation
 
 1. Clone this repository.
-2. Run docker compose file
+2. Before starting Docker containers, run these commands to create data storage and log directories. They also change ownership to the Docker container user. Use sudo for the chown command, which may prompt for a password.
+```shell
+mkdir -p ~/.mytb-data && sudo chown -R 799:799 ~/.mytb-data
+mkdir -p ~/.mytb-logs && sudo chown -R 799:799 ~/.mytb-logs
+```
+4. Run docker compose file
 
 ## Usage
 

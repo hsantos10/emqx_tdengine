@@ -1,6 +1,6 @@
 # EMQX MQTT broker, TDEngine and thingsboard on docker
 
-This project automates the installation of an EMQX instance to create several MQTT Brokers and TDEngine to store all the data from the topics managed by said broker.
+This project automates the installation of an EMQX instance to create several MQTT Brokers and TDEngine to store all the data from the topics managed by said broker. Aditionally it installs thingsboard to manage things with an intuitive dashboard.
 
 An example of it's application on a system is shown here:
 
